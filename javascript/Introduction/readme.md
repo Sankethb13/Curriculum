@@ -1,4 +1,4 @@
-*** Introduction to Javascript:
+### Introduction to Javascript:
 - When JavaScript was created, it initially had another name: “LiveScript”. But Java was very popular at that time, so it was decided that positioning a new language as a “younger brother” of Java would help.
 
 - Today, JavaScript can execute not only in the browser, but also on the server, or actually on any device that has a special program called the JavaScript engine.
@@ -12,7 +12,7 @@
    SpiderMonkey in Firefox.
    SquirrelFish for Safari, etc.  
 
-*** How do engines work?
+## How do engines work?
  Engines are complicated, just focus on basics
  - Engines which run in the browser parses the script(JS code)
  - Then it compiles into machine level language
