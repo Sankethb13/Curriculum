@@ -42,5 +42,8 @@ The engine applies optimizations at each step of the process. It even watches th
  Supported by all major browsers
  Full integration with CSS and HTML
  It is widespread tool for creating browser interfaces.
- Js can be used to create serves, Mobile application
+ Js can be used to create servers, Mobile application
 
+## Summary
+- JavaScript is a synchronous single threaded language, Single threaded means JavaScript can execute one command at a time
+- Synchronous single-threaded that means JavaScript can execute one command at a time in a specific order.
