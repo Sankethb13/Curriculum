@@ -49,9 +49,65 @@
  The exact look of the window also depends on the browser. We can’t modify it.
  That is the price for simplicity. There are other ways to show nicer windows and richer interaction with the visitor, but if “bells and whistles” do not matter much, these methods work just fine.
 
-
-
-
+## TypeConversions:
+    - String conversion: Occurs when we output something. Can be performed with String(value). The conversion to string is usually obvious for primitive values.
+    - Numeric conversion: Occurs in math operations. Can be performed with Number(value).
+      The conversion follows the rules:
+      Value	Becomes…
+      undefined	NaN
+      null	0
+      true / false	1 / 0
+      string	The string is read “as is”, whitespaces (includes spaces, tabs \t, newlines \n etc.) from both sides are ignored. An empty string becomes 0. An error gives NaN.
+    - Boolean conversion: Occurs in logical operations. Can be performed with Boolean(value).
+      Follows the rules:
+      Value	Becomes…
+      0, null, undefined, NaN, ""	false
+      any other value	true
+## Operators:
+   - Unary, binary, operands:
+      * An operand – is what operators are applied to. For instance, in the multiplication of 5 * 2 there are two operands: the left operand is 5 and the right operand is 2. Sometimes, people call these “arguments” instead of “operands”.
+      * An operator is unary if it has a single operand. For example, the unary negation - reverses the sign of a number:
+         let x = 1;
+         x = -x;
+         alert(x); // x = -1 
+      x is unary operator
+      * An operator is binary if it has two operands. The same minus exists in binary form as well:
+         let x = 1, y = 3;
+         alert( y - x ); // 2, binary minus subtracts values
+   - General Mathematics operators.
+   -  Numeric Conversion: '+' The unary plus or, in other words, the plus operator + applied to a single value, doesn’t do anything to numbers. But if the operand is not a number, the unary plus converts it into a number.
+   - Assignment Operator: Let’s note that an assignment = is also an operator. It is listed in the precedence table with the very low priority of 2.
+   - Increment/Decrement operator: ++x, x++ 
+     * The operators ++ and -- can be placed either before or after a variable.
+     * When the operator goes after the variable, it is in “postfix form”: counter++.
+     * The “prefix form” is when the operator goes before the variable: ++counter.
+         ex: let counter = 1; let a = ++counter; // (*) alert(a); // 2 
+             let counter = 1; let a = counter++; // (*) changed ++counter to counter++; alert(a); // 1
+   - Bitwise operator: 
+     AND ( & )
+     OR ( | )
+     XOR ( ^ )
+     NOT ( ~ )
+     LEFT SHIFT ( << )
+     RIGHT SHIFT ( >> )
+     ZERO-FILL RIGHT SHIFT ( >>> ) 
+   - Comma operator: The comma operator , is one of the rarest and most unusual operators. Sometimes, it’s used to write shorter code, so we need to know it in order to understand what’s going on. The comma operator allows us to evaluate several expressions, dividing them with a comma ,. Each of them is evaluated but only the result of the last one is returned.
+## Comparisions: 
+   - Comparison operators return a boolean value.
+   - Strings are compared letter-by-letter in the “dictionary” order.
+   - When values of different types are compared, they get converted to numbers (with the exclusion of a strict equality check).
+   - The values null and undefined are equal == to themselves and each other, but do not equal any other value.
+   - Be careful when using comparisons like > or < with variables that can occasionally be null/undefined. Checking for null/undefined separately is a good idea.
+## Conditional branching: 
+   if, else, elseif, ? :
+## Logical operators:
+   &&, ||, !, ??(nullish Coalescing)
+   The precedence of AND && operator is higher than OR ||.
+## Null Coalescing: ??
+   - The nullish coalescing operator ?? provides a short way to choose the first “defined” value from a list.
+      It’s used to assign default values to variables:
+   - The operator ?? has a very low precedence, only a bit higher than ? and =, so consider adding parentheses when using it in an expression.
+   - It’s forbidden to use it with || or && without explicit parentheses.
 
 
         
