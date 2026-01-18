@@ -108,6 +108,40 @@
       It’s used to assign default values to variables:
    - The operator ?? has a very low precedence, only a bit higher than ? and =, so consider adding parentheses when using it in an expression.
    - It’s forbidden to use it with || or && without explicit parentheses.
+## Loops:
+   - while – The condition is checked before each iteration.
+   - do..while – The condition is checked after each iteration.
+   - for (;;) – The condition is checked before each iteration, additional settings available.
+      To make an “infinite” loop, usually the while(true) construct is used. Such a loop, just like any other, can be stopped with the break directive.
+
+      If we don’t want to do anything in the current iteration and would like to forward to the next one, we can use the continue directive.
+
+      break/continue support labels before the loop. A label is the only way for break/continue to escape a nested loop to go to an outer one.
+## The Switch:
+   - Learnt about switch and grouping of switch cases.
+   - Type matters: The values must be of the same type to match.
+## Functions:
+   - A function declaration looks like this:
+      function name(parameters, delimited, by, comma) {
+      /* code */
+      }
+   - Values passed to a function as parameters are copied to its local variables.
+   - A function may access outer variables. But it works only from inside out. The code outside of the function doesn’t see its local variables.
+   - A function can return a value. If it doesn’t, then its result is undefined.
+   - To make the code clean and easy to understand, it’s recommended to use mainly local variables and parameters in the function, not outer variables.
+   - It is always easier to understand a function which gets parameters, works with them and returns a result than a function which gets no parameters, but modifies outer variables as a side effect.
+   - Function naming:
+      A name should clearly describe what the function does. When we see a function call in the code, a good name instantly gives us an understanding what it does and returns.
+      A function is an action, so function names are usually verbal.
+      There exist many well-known function prefixes like create…, show…, get…, check… and so on. Use them to hint what a function does.
+      Functions are the main building blocks of scripts. Now we’ve covered the basics, so we actually can start creating and using them. But that’s only the beginning of the path. We are going to return to them many times, going more deeply into their advanced features.
+## Function Expression:
+   - Functions are values. They can be assigned, copied or declared in any place of the code.
+   - If the function is declared as a separate statement in the main code flow, that’s called a “Function Declaration”.
+   - If the function is created as a part of an expression, it’s called a “Function Expression”.
+   - Function Declarations are processed before the code block is executed. They are visible everywhere in the block.
+   - Function Expressions are created when the execution flow reaches them.
+   - In most cases when we need to declare a function, a Function Declaration is preferable, because it is visible prior to the declaration itself. That gives us more flexibility in code organization, and is usually more readable.
+   - So we should use a Function Expression only when a Function Declaration is not fit for the task. We’ve seen a couple of examples of that in this chapter, and will see more in the future.
 
 
-        
