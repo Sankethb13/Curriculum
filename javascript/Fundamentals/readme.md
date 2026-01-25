@@ -143,5 +143,75 @@
    - Function Expressions are created when the execution flow reaches them.
    - In most cases when we need to declare a function, a Function Declaration is preferable, because it is visible prior to the declaration itself. That gives us more flexibility in code organization, and is usually more readable.
    - So we should use a Function Expression only when a Function Declaration is not fit for the task. We’ve seen a couple of examples of that in this chapter, and will see more in the future.
+## Function expression and declaration:
+
+- Function Declaration and function expression:
+When JavaScript prepares to run the script, it first looks for global Function Declarations in it and creates the functions. We can think of it as an “initialization stage”.
+And after all Function Declarations are processed, the code is executed. So it has access to these functions.
+
+Function expression usage :
+let age = prompt("What is your age?", 18);
+
+let welcome;
+
+if (age < 18) {
+
+welcome = function() {
+alert("Hello!");
+};
+
+} else {
+
+welcome = function() {
+alert("Greetings!");
+};
+
+}
+
+welcome(); // ok now
+
+## Arrow functions:
+let func = (p1, p2, p3..){
+return
+}
+
+if it has single expression
+let func = (p1, p2) => p1 + p2;
+
+- If we have only one param then the paranthesis can be omitted
+let func = n1 => n1*2
+- if they are no arguments then we should add paranthesis
+let sayHi = () => alert("Hello!");
+sayHi();
+- Arrow functions can be written as function expression:
+let c = (age > 18) ?
+() => alert("Hi) :
+() => alert("bye");
+
+c();
+
+- Arrow functions are handy for simple actions, especially for one-liners. They come in two flavors:
+
+- Without curly braces: (...args) => expression – the right side is an expression: the function evaluates it and returns the result. Parentheses can be omitted, if there’s only a single argument, e.g. n => n*2.
+- With curly braces: (...args) => { body } – brackets allow us to write multiple statements inside the function, but we need an explicit return to return something.
+
+## Javascript specials:
+Code Structure:
+- Statements are delimited with a semicolon:
+- Usually, a line-break is also treated as a delimiter, so that would also work:
+Strict mode:
+- To fully enable all JS features we will enable use strict mode
+- It should be in the top of the script
+Variables:
+- Variables are dynamically types. They can store any value
+Interaction:
+- Prompt, confirm, alert
+- All these functions are modal, they pause the code execution and prevent the visitor from interacting with the page until they answer.
+
+### Code quality:
+* Debugging browser:
+- Add command debbuger to stop the code - this command works when the developer tools are open. If not the browser will ignore it.
+
+### Polyfills and transpilers
 
 
