@@ -71,7 +71,7 @@ let b = 0o377; // octal form of 255
    Math.pow(2,10) //2 power of 10
    Math.max and Math.Min
    Math.random
-
+=======================
 ## Strings:
     - In JS all the texts are stored as strings, there no seperate type called char
     -   let single = 'single-quoted';
@@ -125,4 +125,166 @@ let b = 0o377; // octal form of 255
     - substr():
     let str = "stringify";
     alert( str.substr(2, 4) ); // 'ring', from the 2nd position get 4 characters
-    
+=========================
+### Arrays:
+    - Objects allows us to store keyed collection of values, but often we need ordered collection. For this there exists a special data structure called Arrays.
+    - Declaration :
+     let arr = new array () ;
+     or 
+     let arr = [];
+     we can give intial elements in the array.
+     - Arrays are ordered and It is not convenient to use an object here, because it provides no methods to manage the order of elements. We can’t insert a new property “between” the existing ones. Objects are just not meant for such use.
+     - Array can store any type of element.
+     - In Array we add a trailing comma like objects.
+
+    ** Get the last element with at.
+    We cant array[-1] as the last element in JS. But we can get it using arr[arr.length - 1] => last element.
+    Also we have a function to get the last element is 'at' arr.at(-1).
+
+### Methods like push, pop, shift, unshift:
+    - A queue is one of the most common uses of an array. In computer science, this means an ordered collection of elements which supports two operations:
+        - push appends an element to the end.
+        - shift get an element from the beginning, advancing the queue, so that the 2nd element becomes the 1st.
+    - Arrays in JavaScript can work both as a queue and as a stack. They allow you to add/remove elements, both to/from the beginning or the end.
+    - Both fruits.pop() and fruits.at(-1) return the last element of the array, but fruits.pop() also modifies the array by removing it.
+    - pop() - removes the last element of an array.
+    - push() - appends the last element of an array.
+    - shift() - removes the first element of an array.
+    - unshift() - adds the first element of an array.
+### Internals:
+    - They are similar to object in JS, but they extend special function to manage and access data.
+    - They are stored in the order even when you are referencing
+    - The ways to misuse an array:
+        Add a non-numeric property like arr.test = 5.
+        Make holes, like: add arr[0] and then arr[1000] (and nothing between them).
+        Fill the array in the reverse order, like arr[1000], arr[999] and so on.
+### Performance:
+    - Methods push/pop are fast and shift/unshift are slow.
+    - shift operation does three things,
+        Remove the element with the index 0.
+        Move all elements to left and renumber them.
+        update the length property
+    - Hence it takes time to update and read the elements at the start rather than accessing elements at the end of an
+    array.
+    - The pop method does not need to move anything, because other elements keep their indexes. That’s why it’s fast. Also push method
+### Loops:
+    - Similar to objects, arrays can be iterated through out, 
+        let arr = ["Apple", "Orange", "Pear"];
+        for (let key in arr) {
+        alert( arr[key] ); // Apple, Orange, Pear
+        }
+    - for 
+    - for of() - iterates though out the loop to get the values of an array and not particular number of it.
+    - for in() -
+### Length:
+    - length property automatically updates when we modify an array.
+    - It doesnt iterate everything but gets the highest index and adds +1.
+    - If the length of an array is truncated and resized back we cannot access elements again. those will be undefined.
+    - simplest way to clear the array is array.length = 0.
+### new Array ():
+    - we can create array like this -> let arr = new Array("Apple", "Pear", "etc");
+    - Its rarely used because [] is shorter way and easier.
+    - If new Array is called with single argument and its a number then it creates an array with the mentioned length.
+    - The value of the index is undefined but it creates an array with specfic length.
+        let arr = new Array(2); // will it create an array of [2] ?
+        alert( arr[0] ); // undefined! no elements.
+        alert( arr.length ); // length 2
+### Multi-dimensional Arrays:
+    - Arrays can have items that are also arrays. We can use it for multidimensional arrays, for example to store matrices:
+    - let matrix = [
+                    [1, 2, 3],
+                    [4, 5, 6],
+                    [7, 8, 9]
+                    ];
+        alert( matrix[0][1] ); // 2, the second value of the first inner array
+### toString:
+    - Arrays have their own implementation of toString method that returns a comma-separated list of elements.
+    - let arr = [1, 2, 3];
+      alert( arr ); // 1,2,3  
+      alert( String(arr) === '1,2,3' ); // true
+### Dont compare arrays with ==:
+    - These arrays are technically different objects. So they aren’t equal. The == operator doesn’t do item-by-item comparison.
+    - alert( [] == [] ); // false
+      alert( [0] == [0] ); // false
+    - alert( 0 == [] ); // true
+      alert('0' == [] ); // false
+    - To compare array - don’t use the == operator. Instead, compare them item-by-item in a loop or using iteration methods explained in the next chapter.
+========================
+## Array methods:
+    - arr.splice: this can add remove replace elements any where in the array,
+        arr.splice(start,[deletecount, elem1, ...., elemn])
+    - arr.slice: it is much simpler than splice.
+        arr.slice([start], [end]);
+    - We can also call it without arguments: arr.slice() creates a copy of arr. That’s used to obtain a copy for further changes that should not affect the original array.
+    - let arr = ["t", "e", "s", "t"];
+       alert( arr.slice(1, 3) ); // e,s (copy from 1 to 3)
+       alert( arr.slice(-2) ); // s,t (copy from -2 till the end)
+    - concat: arr.concat(arg1, arg2...) arguments can be numbers, array or values.
+        example:
+        let arr = [1, 2];
+        // create an array from: arr and [3,4]
+        alert( arr.concat([3, 4]) ); // 1,2,3,4
+        // create an array from: arr and [3,4] and [5,6]
+        alert( arr.concat([3, 4], [5, 6]) ); // 1,2,3,4,5,6
+        // create an array from: arr and [3,4], then add values 5 and 6
+        alert( arr.concat([3, 4], 5, 6) ); // 1,2,3,4,5,6
+    - array.foreach: it allows to run every element of an array.
+    // for each element call alert
+        ["Bilbo", "Gandalf", "Nazgul"].forEach(alert);
+    // ["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
+        alert(`${item} is at index ${index} in ${array}`);
+        });
+### searching in an array:
+    - indexOf(), lastIndexOf() and includes().
+    - indexOf(): arr.indexOf(item, from) – looks for item starting from index from, and returns the index where it was found, otherwise -1.
+    - includes(): similar to index of but returns true/false.
+    - lastIndexOf(): similar to indexOf(). But iterates for last to first.
+        let arr = [1, 0, false];
+        alert( arr.indexOf(0) ); // 1
+        alert( arr.indexOf(false) ); // 2
+        alert( arr.indexOf(null) ); // -1
+        alert( arr.includes(1) ); // true
+    - indexOf uses the strict equality === for comparison. So, if we look for false, it finds exactly false and not the zero.
+    - find():let result = arr.find(function(item, index, array) {
+        // if true is returned, item is returned and iteration is stopped
+        // for falsy scenario returns undefined
+        });
+        item -> element
+        index -> position
+        array -> array itself
+    example: let users = [
+        {id: 1, name: "John"},
+        {id: 2, name: "Pete"},
+        {id: 3, name: "Mary"}
+        ];
+        let user = users.find(item => item.id == 1);
+        alert(user.name); // John
+    - findIndex(): method has the same syntax but returns the index where the element was found instead of the element itself. 
+    - findLastIndex(): method is like findIndex, but searches from right to left.
+    - filter(): let users = [
+        {id: 1, name: "John"},
+        {id: 2, name: "Pete"},
+        {id: 3, name: "Mary"}
+        ];
+        // returns array of the first two users
+        let someUsers = users.filter(item => item.id < 3);
+        alert(someUsers.length); // 2
+### Transform an Array:  
+    - map(): It calls the function for each element of the array and returns the array of results.
+        let result = arr.map(function(item, index, array) {
+        // returns the new value instead of item
+        });
+    - let lengths = ["Bilbo", "Gandalf", "Nazgul"].map(item => item.length);
+       alert(lengths); // 5,7,6
+    - sort():
+    - reverse():
+    - split() : split(with a delimiter).
+    - it has optional second param - let arr = 'Bilbo, Gandalf, Nazgul, Saruman'.split(', ', 2);
+    - let str = "test"; alert( str.split('') ); // t,e,s,t
+    - join () : let arr = ['Bilbo', 'Gandalf', 'Nazgul'];
+                let str = arr.join(';'); // glue the array into a string using ;
+                alert( str ); // Bilbo;Gandalf;Nazgul
+    - When we need to iterate over an array – we can use forEach, for or for..of.
+    - When we need to iterate and return the data for each element – we can use map.  
+    - reduce, reduceright().
+    - Please note that methods sort, reverse and splice modify the array itself.
