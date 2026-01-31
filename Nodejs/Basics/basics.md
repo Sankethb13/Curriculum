@@ -98,3 +98,8 @@
     const fs = require('fs');
     - You can now use the fs object exported by the "fs" module.
     - Third-party Modules need to be installed (via npm install in the project folder) AND imported.
+### Types of errors:
+    - Syntax errors
+    - Runtime errors
+    - Logical errors
+
